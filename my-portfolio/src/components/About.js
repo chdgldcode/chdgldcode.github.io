@@ -39,15 +39,15 @@ const About = () => {
             return newText;
           });
           setCurrentCharIndex(prev => prev + 1);
-        }, Math.random() * 50 + 30); // Random typing speed between 30-80ms
+        }, Math.random() * 30 + 15); // Faster typing: 15-45ms (was 30-80ms)
         
         return () => clearTimeout(timer);
       } else {
-        // Move to next line after a pause
+        // Move to next line after a shorter pause
         const timer = setTimeout(() => {
           setCurrentLineIndex(prev => prev + 1);
           setCurrentCharIndex(0);
-        }, 300);
+        }, 150); // Shorter pause: 150ms (was 300ms)
         
         return () => clearTimeout(timer);
       }
