@@ -5,71 +5,58 @@ import { FaExternalLinkAlt, FaGithub } from 'react-icons/fa';
 const Projects = () => {
   const projects = [
     {
-      title: 'React E-commerce Platform',
-      description: 'A full-stack e-commerce application built with React, Node.js, and MongoDB. Features include user authentication, shopping cart, payment integration, and admin dashboard.',
-      image: 'https://via.placeholder.com/400x250/6366f1/ffffff?text=E-commerce+App',
-      technologies: ['React', 'Node.js', 'MongoDB', 'Stripe', 'JWT'],
-      liveUrl: 'https://your-ecommerce-demo.vercel.app',
-      githubUrl: 'https://github.com/chdgldcode/ecommerce-app'
+      title: 'Portfolio',
+      description: 'A modern portfolio website built with React and featuring dark mode, animations, and responsive design.',
+      image: 'https://via.placeholder.com/300x200/1a1a1a/ffffff?text=Portfolio',
+      technologies: ['React', 'CSS3', 'Framer Motion'],
+      liveUrl: '#',
+      githubUrl: 'https://github.com/chdgldcode/portfolio'
     },
     {
-      title: 'Task Management Dashboard',
-      description: 'A collaborative task management tool with real-time updates, drag-and-drop functionality, and team collaboration features built with React and Socket.io.',
-      image: 'https://via.placeholder.com/400x250/8b5cf6/ffffff?text=Task+Manager',
-      technologies: ['React', 'Socket.io', 'Express.js', 'PostgreSQL'],
-      liveUrl: 'https://your-taskmanager-demo.vercel.app',
-      githubUrl: 'https://github.com/chdgldcode/task-manager'
+      title: 'E-commerce',
+      description: 'Full-stack e-commerce platform with user authentication, payment processing, and admin dashboard.',
+      image: 'https://via.placeholder.com/300x200/1a1a1a/ffffff?text=E-commerce',
+      technologies: ['React', 'Node.js', 'MongoDB'],
+      liveUrl: '#',
+      githubUrl: 'https://github.com/chdgldcode/ecommerce'
     },
     {
-      title: 'Weather Analytics App',
-      description: 'A responsive weather application with location-based forecasts, interactive charts, and detailed weather analytics using React and external APIs.',
-      image: 'https://via.placeholder.com/400x250/10b981/ffffff?text=Weather+App',
-      technologies: ['React', 'Chart.js', 'Weather API', 'Geolocation'],
-      liveUrl: 'https://your-weather-demo.vercel.app',
-      githubUrl: 'https://github.com/chdgldcode/weather-app'
+      title: 'CryptTrack',
+      description: 'Cryptocurrency tracking application with real-time price updates and portfolio management.',
+      image: 'https://via.placeholder.com/300x200/1a1a1a/ffffff?text=CryptTrack',
+      technologies: ['React', 'API', 'Chart.js'],
+      liveUrl: '#',
+      githubUrl: 'https://github.com/chdgldcode/crypttrack'
     }
   ];
-
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.2
-      }
-    }
-  };
-
-  const itemVariants = {
-    hidden: { y: 50, opacity: 0 },
-    visible: { y: 0, opacity: 1 }
-  };
 
   return (
     <section id="projects" className="projects">
       <div className="container">
-        <motion.h2 
-          className="section-title"
+        <motion.div 
+          className="section-header"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
         >
-          Featured Projects
-        </motion.h2>
+          <h2 className="section-title">
+            <span className="section-number">02.</span> Projects
+          </h2>
+          <a href="#" className="view-all">View all →</a>
+        </motion.div>
         
         <motion.div 
           className="projects-grid"
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
           viewport={{ once: true }}
         >
           {projects.map((project, index) => (
             <motion.div 
               key={index}
               className="project-card"
-              variants={itemVariants}
               whileHover={{ y: -10 }}
               transition={{ type: "spring", stiffness: 300 }}
             >
@@ -77,24 +64,12 @@ const Projects = () => {
                 <img src={project.image} alt={project.title} />
                 <div className="project-overlay">
                   <div className="project-links">
-                    <motion.a 
-                      href={project.liveUrl} 
-                      target="_blank" 
-                      rel="noopener noreferrer"
-                      whileHover={{ scale: 1.1 }}
-                      whileTap={{ scale: 0.9 }}
-                    >
+                    <a href={project.liveUrl} target="_blank" rel="noopener noreferrer">
                       <FaExternalLinkAlt />
-                    </motion.a>
-                    <motion.a 
-                      href={project.githubUrl} 
-                      target="_blank" 
-                      rel="noopener noreferrer"
-                      whileHover={{ scale: 1.1 }}
-                      whileTap={{ scale: 0.9 }}
-                    >
+                    </a>
+                    <a href={project.githubUrl} target="_blank" rel="noopener noreferrer">
                       <FaGithub />
-                    </motion.a>
+                    </a>
                   </div>
                 </div>
               </div>
@@ -104,8 +79,12 @@ const Projects = () => {
                 <p>{project.description}</p>
                 <div className="project-tech">
                   {project.technologies.map((tech, techIndex) => (
-                    <span key={techIndex}>{tech}</span>
+                    <span key={techIndex} className="tech-tag">{tech}</span>
                   ))}
+                </div>
+                <div className="project-actions">
+                  <a href={project.liveUrl} className="btn-link">Live site</a>
+                  <a href={project.githubUrl} className="btn-link">Github</a>
                 </div>
               </div>
             </motion.div>

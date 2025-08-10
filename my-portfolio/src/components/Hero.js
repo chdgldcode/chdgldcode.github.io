@@ -1,8 +1,25 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
-import { FaGithub, FaLinkedin, FaTwitter, FaEnvelope } from 'react-icons/fa';
+import { FaGithub, FaLinkedin, FaTwitter } from 'react-icons/fa';
 
 const Hero = () => {
+  const [displayText, setDisplayText] = useState('');
+  const fullText = "Hi, I'm a web designer and front-end developer";
+
+  useEffect(() => {
+    let index = 0;
+    const timer = setInterval(() => {
+      if (index < fullText.length) {
+        setDisplayText(fullText.slice(0, index + 1));
+        index++;
+      } else {
+        clearInterval(timer);
+      }
+    }, 50);
+
+    return () => clearInterval(timer);
+  }, []);
+
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -21,6 +38,7 @@ const Hero = () => {
 
   return (
     <section id="home" className="hero">
+      <div className="grid-background"></div>
       <motion.div 
         className="hero-container"
         variants={containerVariants}
@@ -28,31 +46,24 @@ const Hero = () => {
         animate="visible"
       >
         <div className="hero-content">
+          <motion.div variants={itemVariants} className="hero-greeting">
+            <span className="greeting-text">👋 Hello!</span>
+          </motion.div>
+          
           <motion.h1 variants={itemVariants} className="hero-title">
-            Hi, I'm <span className="highlight">chdgldcode</span>
+            {displayText}
+            <span className="cursor">|</span>
           </motion.h1>
           
-          <motion.p variants={itemVariants} className="hero-subtitle">
-            Full Stack Developer & React Enthusiast
-          </motion.p>
-          
           <motion.p variants={itemVariants} className="hero-description">
-            I create modern, responsive web applications using React, Node.js, and cutting-edge technologies.
-            Passionate about clean code, user experience, and continuous learning.
+            I'm someone who has always been invested in programming and creating visually appealing, 
+            functional interfaces for the web. I love working with modern technologies and creating 
+            seamless user experiences.
           </motion.p>
           
           <motion.div variants={itemVariants} className="hero-buttons">
-            <button 
-              className="btn btn-primary"
-              onClick={() => document.getElementById('projects').scrollIntoView({ behavior: 'smooth' })}
-            >
-              View My Work
-            </button>
-            <button 
-              className="btn btn-secondary"
-              onClick={() => document.getElementById('contact').scrollIntoView({ behavior: 'smooth' })}
-            >
-              Get In Touch
+            <button className="btn btn-primary">
+              About me →
             </button>
           </motion.div>
           
@@ -66,9 +77,6 @@ const Hero = () => {
             <a href="https://twitter.com/chdgldcode" target="_blank" rel="noopener noreferrer">
               <FaTwitter />
             </a>
-            <a href="mailto:chdgldcode@example.com">
-              <FaEnvelope />
-            </a>
           </motion.div>
         </div>
         
@@ -76,12 +84,17 @@ const Hero = () => {
           className="hero-image"
           variants={itemVariants}
         >
-          <div className="profile-card">
-            <div className="profile-image">
+          <div className="profile-container">
+            <div className="profile-card">
               <img 
-                src="https://via.placeholder.com/300x300/4f46e5/ffffff?text=chdgldcode" 
+                src="https://via.placeholder.com/300x300/333/ffffff?text=chdgldcode" 
                 alt="Profile" 
+                className="profile-img"
               />
+              <div className="status-indicator">
+                <div className="status-dot"></div>
+                <span>Available for work</span>
+              </div>
             </div>
           </div>
         </motion.div>

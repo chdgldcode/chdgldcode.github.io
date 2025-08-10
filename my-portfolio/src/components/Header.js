@@ -32,15 +32,15 @@ const Header = () => {
     >
       <div className="nav-container">
         <div className="nav-logo">
-          <h2>Portfolio</h2>
+          <span className="logo-text">✦ Portfolio</span>
         </div>
         
         <nav className={`nav-menu ${isOpen ? 'active' : ''}`}>
-          <button onClick={() => scrollToSection('home')}>Home</button>
-          <button onClick={() => scrollToSection('about')}>About</button>
-          <button onClick={() => scrollToSection('skills')}>Skills</button>
-          <button onClick={() => scrollToSection('projects')}>Projects</button>
-          <button onClick={() => scrollToSection('contact')}>Contact</button>
+          <button onClick={() => scrollToSection('home')}>HOME</button>
+          <button onClick={() => scrollToSection('about')}>ABOUT</button>
+          <button onClick={() => scrollToSection('projects')}>PROJECTS</button>
+          <button onClick={() => scrollToSection('skills')}>SKILLS</button>
+          <button onClick={() => scrollToSection('contact')}>CONTACT</button>
         </nav>
 
         <div 

@@ -6,7 +6,6 @@ const Contact = () => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
-    subject: '',
     message: ''
   });
 
@@ -19,9 +18,8 @@ const Contact = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Handle form submission here
-    alert('Thank you for your message! I\'ll get back to you soon.');
-    setFormData({ name: '', email: '', subject: '', message: '' });
+    alert('Message sent! Thank you for reaching out.');
+    setFormData({ name: '', email: '', message: '' });
   };
 
   return (
@@ -34,7 +32,7 @@ const Contact = () => {
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
         >
-          Get In Touch
+          <span className="section-number">04.</span> Contact
         </motion.h2>
         
         <div className="contact-content">
@@ -45,21 +43,30 @@ const Contact = () => {
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
           >
-            <h3>Let's work together!</h3>
-            <p>I'm always interested in hearing about new projects and opportunities.</p>
+            <h3>Get in touch</h3>
+            <p>I'm interested in freelance opportunities. However, if you have other request or question, don't hesitate to contact me.</p>
             
             <div className="contact-details">
               <div className="contact-item">
                 <FaEnvelope />
-                <span>chdgldcode@example.com</span>
+                <div>
+                  <span>Email</span>
+                  <p>chdgldcode@example.com</p>
+                </div>
               </div>
               <div className="contact-item">
                 <FaPhone />
-                <span>+1 (555) 123-4567</span>
+                <div>
+                  <span>Phone</span>
+                  <p>+63 123 456 7890</p>
+                </div>
               </div>
               <div className="contact-item">
                 <FaMapMarkerAlt />
-                <span>Your City, Country</span>
+                <div>
+                  <span>Location</span>
+                  <p>Philippines</p>
+                </div>
               </div>
             </div>
           </motion.div>
@@ -93,33 +100,18 @@ const Contact = () => {
               />
             </div>
             <div className="form-group">
-              <input
-                type="text"
-                name="subject"
-                placeholder="Subject"
-                value={formData.subject}
-                onChange={handleChange}
-                required
-              />
-            </div>
-            <div className="form-group">
               <textarea
                 name="message"
                 placeholder="Your Message"
-                rows="5"
+                rows="6"
                 value={formData.message}
                 onChange={handleChange}
                 required
               ></textarea>
             </div>
-            <motion.button 
-              type="submit" 
-              className="btn btn-primary"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
+            <button type="submit" className="btn btn-primary">
               Send Message
-            </motion.button>
+            </button>
           </motion.form>
         </div>
       </div>

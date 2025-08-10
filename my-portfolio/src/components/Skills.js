@@ -2,39 +2,16 @@ import React from 'react';
 import { motion } from 'framer-motion';
 
 const Skills = () => {
-  const skillCategories = [
-    {
-      title: 'Frontend',
-      skills: ['React', 'JavaScript', 'TypeScript', 'Next.js', 'HTML5', 'CSS3', 'Tailwind CSS', 'Sass']
-    },
-    {
-      title: 'Backend',
-      skills: ['Node.js', 'Express.js', 'Python', 'Django', 'REST APIs', 'GraphQL']
-    },
-    {
-      title: 'Database',
-      skills: ['MongoDB', 'PostgreSQL', 'MySQL', 'Redis', 'Firebase']
-    },
-    {
-      title: 'Tools & Others',
-      skills: ['Git', 'Docker', 'AWS', 'Vercel', 'Jest', 'Webpack', 'Figma']
-    }
+  const skills = [
+    { name: 'HTML5', icon: '🌐', color: '#e34c26' },
+    { name: 'CSS3', icon: '🎨', color: '#1572b6' },
+    { name: 'JavaScript', icon: '⚡', color: '#f7df1e' },
+    { name: 'React', icon: '⚛️', color: '#61dafb' },
+    { name: 'Node.js', icon: '🟢', color: '#68a063' },
+    { name: 'PHP', icon: '🐘', color: '#777bb4' },
+    { name: 'Git', icon: '📦', color: '#f05032' },
+    { name: 'Figma', icon: '🎯', color: '#f24e1e' }
   ];
-
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1
-      }
-    }
-  };
-
-  const itemVariants = {
-    hidden: { y: 20, opacity: 0 },
-    visible: { y: 0, opacity: 1 }
-  };
 
   return (
     <section id="skills" className="skills">
@@ -46,36 +23,26 @@ const Skills = () => {
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
         >
-          Skills & Technologies
+          <span className="section-number">03.</span> Skills
         </motion.h2>
         
         <motion.div 
           className="skills-grid"
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
           viewport={{ once: true }}
         >
-          {skillCategories.map((category, index) => (
+          {skills.map((skill, index) => (
             <motion.div 
               key={index}
-              className="skill-category"
-              variants={itemVariants}
-              whileHover={{ scale: 1.02 }}
+              className="skill-card"
+              whileHover={{ scale: 1.05, y: -5 }}
+              transition={{ type: "spring", stiffness: 300 }}
+              style={{ '--skill-color': skill.color }}
             >
-              <h3>{category.title}</h3>
-              <div className="skill-items">
-                {category.skills.map((skill, skillIndex) => (
-                  <motion.span 
-                    key={skillIndex}
-                    className="skill-item"
-                    whileHover={{ scale: 1.1 }}
-                    whileTap={{ scale: 0.95 }}
-                  >
-                    {skill}
-                  </motion.span>
-                ))}
-              </div>
+              <div className="skill-icon">{skill.icon}</div>
+              <h3 className="skill-name">{skill.name}</h3>
             </motion.div>
           ))}
         </motion.div>

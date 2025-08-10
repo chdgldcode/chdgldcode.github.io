@@ -2,65 +2,82 @@ import React from 'react';
 import { motion } from 'framer-motion';
 
 const About = () => {
-  const stats = [
-    { number: '50+', label: 'Projects Completed' },
-    { number: '3+', label: 'Years Experience' },
-    { number: '500+', label: 'GitHub Commits' }
-  ];
-
   return (
     <section id="about" className="about">
       <div className="container">
-        <motion.h2 
-          className="section-title"
-          initial={{ opacity: 0, y: 20 }}
+        <motion.div 
+          className="about-content"
+          initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
         >
-          About Me
-        </motion.h2>
-        
-        <div className="about-content">
-          <motion.div 
-            className="about-text"
-            initial={{ opacity: 0, x: -50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            viewport={{ once: true }}
-          >
-            <p>
-              I'm a passionate React developer with over 3 years of experience creating dynamic, 
-              user-friendly web applications. I specialize in modern JavaScript frameworks, 
-              particularly React and Next.js, and have a strong foundation in both frontend and backend technologies.
-            </p>
-            <p>
-              My journey in web development started with curiosity about how websites work, 
-              and it has evolved into a career focused on creating meaningful digital experiences. 
-              I believe in writing clean, maintainable code and staying updated with the latest industry trends.
-            </p>
-          </motion.div>
+          <div className="about-text">
+            <div className="terminal-header">
+              <div className="terminal-controls">
+                <span className="control red"></span>
+                <span className="control yellow"></span>
+                <span className="control green"></span>
+              </div>
+              <span className="terminal-title">about-me.js</span>
+            </div>
+            <div className="terminal-content">
+              <div className="code-line">
+                <span className="line-number">01</span>
+                <span className="code">
+                  <span className="keyword">const</span> 
+                  <span className="variable"> aboutMe</span> 
+                  <span className="operator"> = </span>
+                  <span className="bracket">{'{'}</span>
+                </span>
+              </div>
+              <div className="code-line">
+                <span className="line-number">02</span>
+                <span className="code">
+                  <span className="property">  name:</span> 
+                  <span className="string">'chdgldcode'</span>,
+                </span>
+              </div>
+              <div className="code-line">
+                <span className="line-number">03</span>
+                <span className="code">
+                  <span className="property">  title:</span> 
+                  <span className="string">'Frontend Developer'</span>,
+                </span>
+              </div>
+              <div className="code-line">
+                <span className="line-number">04</span>
+                <span className="code">
+                  <span className="property">  location:</span> 
+                  <span className="string">'Philippines'</span>,
+                </span>
+              </div>
+              <div className="code-line">
+                <span className="line-number">05</span>
+                <span className="code">
+                  <span className="property">  passion:</span> 
+                  <span className="string">'Creating amazing web experiences'</span>
+                </span>
+              </div>
+              <div className="code-line">
+                <span className="line-number">06</span>
+                <span className="code">
+                  <span className="bracket">{'}'}</span>
+                </span>
+              </div>
+            </div>
+          </div>
           
-          <motion.div 
-            className="about-stats"
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.4 }}
-            viewport={{ once: true }}
-          >
-            {stats.map((stat, index) => (
-              <motion.div 
-                key={index}
-                className="stat"
-                whileHover={{ scale: 1.05 }}
-                transition={{ type: "spring", stiffness: 300 }}
-              >
-                <h3>{stat.number}</h3>
-                <p>{stat.label}</p>
-              </motion.div>
-            ))}
-          </motion.div>
-        </div>
+          <div className="about-avatar">
+            <div className="avatar-container">
+              <img 
+                src="https://via.placeholder.com/200x200/333/ffffff?text=DEV" 
+                alt="Developer Avatar" 
+                className="avatar-img"
+              />
+            </div>
+          </div>
+        </motion.div>
       </div>
     </section>
   );

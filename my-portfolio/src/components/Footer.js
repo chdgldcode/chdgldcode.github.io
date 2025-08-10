@@ -1,33 +1,34 @@
 import React from 'react';
-import { motion } from 'framer-motion';
+import { FaGithub, FaLinkedin, FaTwitter } from 'react-icons/fa';
 
 const Footer = () => {
   return (
     <footer className="footer">
       <div className="container">
-        <motion.div 
-          className="footer-content"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
-        >
-          <p>&copy; 2024 chdgldcode. All rights reserved.</p>
-          <div className="footer-links">
-            <button onClick={() => document.getElementById('home').scrollIntoView({ behavior: 'smooth' })}>
-              Home
-            </button>
-            <button onClick={() => document.getElementById('about').scrollIntoView({ behavior: 'smooth' })}>
-              About
-            </button>
-            <button onClick={() => document.getElementById('projects').scrollIntoView({ behavior: 'smooth' })}>
-              Projects
-            </button>
-            <button onClick={() => document.getElementById('contact').scrollIntoView({ behavior: 'smooth' })}>
-              Contact
-            </button>
+        <div className="footer-content">
+          <div className="footer-left">
+            <h3>✦ chdgldcode</h3>
+            <p>Building digital experiences</p>
           </div>
-        </motion.div>
+          
+          <div className="footer-center">
+            <p>&copy; 2024 chdgldcode. All rights reserved.</p>
+          </div>
+          
+          <div className="footer-right">
+            <div className="footer-social">
+              <a href="https://github.com/chdgldcode" target="_blank" rel="noopener noreferrer">
+                <FaGithub />
+              </a>
+              <a href="https://linkedin.com/in/chdgldcode" target="_blank" rel="noopener noreferrer">
+                <FaLinkedin />
+              </a>
+              <a href="https://twitter.com/chdgldcode" target="_blank" rel="noopener noreferrer">
+                <FaTwitter />
+              </a>
+            </div>
+          </div>
+        </div>
       </div>
     </footer>
   );
