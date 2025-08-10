@@ -47,7 +47,6 @@ const Hero = () => {
       >
         <div className="hero-content">
           <motion.div variants={itemVariants} className="hero-greeting">
-            <span className="greeting-text">👋 Hello!</span>
           </motion.div>
           
           <motion.h1 variants={itemVariants} className="hero-title">
@@ -87,7 +86,7 @@ const Hero = () => {
           <div className="profile-container">
             <div className="profile-card">
               <img 
-                src="https://via.placeholder.com/300x300/333/ffffff?text=chdgldcode" 
+                src="/images/nbg.png" 
                 alt="Profile" 
                 className="profile-img"
               />
