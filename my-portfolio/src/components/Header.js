@@ -36,7 +36,7 @@ const Header = () => {
         </div>
         
         <nav className={`nav-menu ${isOpen ? 'active' : ''}`}>
-          <button onClick={() => scrollToSection('home')}>HOMER</button>
+          <button onClick={() => scrollToSection('home')}>HOMERoEWEA</button>
           <button onClick={() => scrollToSection('about')}>ABOUT</button>
           <button onClick={() => scrollToSection('projects')}>PROJECTS</button>
           <button onClick={() => scrollToSection('skills')}>SKILLS</button>
